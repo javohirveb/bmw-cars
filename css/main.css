@@ -283,9 +283,6 @@ section {
   width: 50%;
   margin: 1rem 0;
 }
-.home .btn {
-  display: inline-block;
-}
 
 .icons-container {
   padding-top: 5rem;
@@ -391,7 +388,7 @@ section {
 
 .services .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
 }
 .services .box-container .box {
@@ -601,6 +598,27 @@ section {
 .contact .row form textarea {
   height: 15rem;
   resize: none;
+}
+
+@media screen and (max-width: 991px) {
+  .services .box-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .home h1 {
+    font-size: 3rem;
+  }
+  .home img {
+    width: 100%;
+  }
+  .services .box-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

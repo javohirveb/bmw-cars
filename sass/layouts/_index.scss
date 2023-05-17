@@ -98,9 +98,7 @@
       width: 50%;
       margin: 1rem 0;
    }
-   .btn {
-      display: inline-block;
-   }
+
 }
 
 .icons-container {
@@ -232,7 +230,7 @@
 .services {
    .box-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
 
       .box {
@@ -331,6 +329,7 @@
    background-size: cover;
    position: relative;
    z-index: -4;
+
    &::before {
       content: '';
       position: absolute;
@@ -480,6 +479,35 @@
             height: 15rem;
             resize: none;
          }
+      }
+   }
+}
+
+
+@include mixins.media-lg {
+   .services {
+      .box-container {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 1.5rem;
+      }
+   }
+}
+
+@include mixins.media-sm {
+   .home {
+      h1 {
+         font-size: 3rem;
+      }
+      img {
+         width: 100%;
+      }
+   }
+   .services {
+      .box-container {
+         display: grid;
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
       }
    }
 }
