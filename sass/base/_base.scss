@@ -1,0 +1,85 @@
+@use '../abstract/variables' as vars;
+@use '../abstract/mixins';
+
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
+
+* {
+   font-family: 'Poppins', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+   text-transform: capitalize;
+   transition: all .2s linear;
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+   scroll-padding-top: 7rem;
+   scroll-behavior: smooth;
+}
+
+section {
+   padding: 2rem 9%;
+}
+
+.heading {
+   text-align: center;
+   padding-bottom: 2rem;
+   font-size: 4.5rem;
+   color: vars.$black;
+   span {
+      position: relative;
+      z-index: 0;
+      &::before {
+         content: '';
+         position: absolute;
+         bottom: .5rem;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+         background: vars.$yellow;
+         clip-path: polygon(0 90%, 100% 80%, 100% 100%, 10% 100%);
+      }
+   }
+}
+
+.btn {
+   display: inline-block;
+   margin-top: 1rem;
+   border-radius: 0.5rem;
+   background: vars.$light-yellow;
+   color: vars.$black;
+   font-weight: 500;
+   font-size: 1.7rem;
+   cursor: pointer;
+   padding: 0.8rem 3rem;
+
+   &:hover {
+      background: vars.$yellow;
+   }
+}
+
+@include mixins.media-lg {
+   html {
+      font-size: 55%;
+   }
+
+   section {
+      padding: 2rem;
+   }
+}
+
+@include mixins.media-sm {
+   html {
+      font-size: 50%;
+   }
+
+   .heading {
+      font-size: 3rem;
+   }
+}

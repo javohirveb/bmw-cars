@@ -1,0 +1,38 @@
+@use '../abstract/variables' as vars;
+
+.footer {
+   background: vars.$light-yellow;
+   .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: 1.5rem;
+      .box {
+         h3 {
+            color: vars.$black;
+            font-size: 2.2rem;
+            padding: 1rem 0;
+         }
+         a {
+            color: vars.$black;
+            font-size: 1.4rem;
+            display: block;
+            padding: 1rem 0;
+            i {
+               padding-right: 0.5rem;
+               color: vars.$black;
+            }
+            &:hover i {
+               padding-right: 2rem;
+            }
+         }
+      }
+   }
+   .credit {
+      text-align: center;
+      border-top: vars.$border;
+      padding: 1rem;
+      padding-top: 2.5rem;
+      margin-top: 2rem;
+      font-size: 2rem;
+   }
+}

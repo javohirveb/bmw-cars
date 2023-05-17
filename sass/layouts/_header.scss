@@ -1,0 +1,112 @@
+@use '../abstract/variables' as vars;
+@use '../abstract/mixins';
+@use '../base/base';
+
+.header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 999;
+   background: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 3rem 9%;
+
+   .logo {
+      font-size: 2.5rem;
+      color: vars.$black;
+      font-weight: bolder;
+
+      span {
+         color: vars.$yellow;
+      }
+   }
+
+   .navbar a {
+      font-size: 1.7rem;
+      margin: 0 1rem;
+      color: vars.$black;
+
+      &:hover {
+         color: vars.$yellow;
+      }
+   }
+
+   .btn {
+      margin-top: 0;
+   }
+
+   #login-btn i {
+      font-size: 2.5rem;
+      color: vars.$black;
+      cursor: pointer;
+      display: none;
+
+      &:hover {
+         color: vars.$yellow;
+      }
+   }
+
+   &.active {
+      box-shadow: vars.$box-shadow;
+      padding: 2rem 9%;
+   }
+}
+
+#menu-btn {
+   font-size: 2.5rem;
+   color: vars.$light-color;
+   cursor: pointer;
+   display: none;
+}
+
+
+@include mixins.media-lg {
+   .header {
+      padding: 2rem;
+
+      &.active {
+         padding: 2rem;
+      }
+   }
+}
+
+@include mixins.media-md {
+   #menu-btn {
+      display: block;
+   }
+
+   .header {
+      #login-btn {
+         i {
+            display: block;
+         }
+
+         .btn {
+            display: none;
+         }
+      }
+
+      .navbar {
+         position: absolute;
+         top: 99%;
+         left: 0;
+         right: 0;
+         background: #fff;
+         border-top: vars.$border;
+         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+         &.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+         }
+
+         a {
+            display: block;
+            margin: 2rem;
+            font-size: 2rem;
+         }
+      }
+   }
+}
